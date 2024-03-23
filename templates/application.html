@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberLinkBot</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <div class="previous-conversations">
+                <button class="toggle-background-btn" id="toggleBackgroundButton" onclick="toggleBackgroundColor()">Change Background</button>
+                <br><br>
+                <hr>
+
+                <h2>Previous Conversations</h2>
+                <ul id="previousConversationsList">
+                    <!-- Conversation history will be dynamically added here -->
+                    {% for convo in history %}
+                        <li onclick="displayConversation('{{ convo[0] }}', '{{ convo[1] }}')">{{ convo[0] }}</li>
+                        <div class="conversation" id="conversation_{{ loop.index }}" style="display: none;">
+                            <p><b>You:</b> {{ convo[0] }}</p>
+                            <p><b>CyberLinkBot:</b> {{ convo[1] }}</p>
+                        </div>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="chat-container">
+            <h2 class="title"><b class="name">CyberLinkBot</b> <span>Powered By: CyberLink Careers</span></h2>
+            <div class="chatbox" id="chatbox">
+                <p class="bot-message">Welcome to CyberLinkBot!</p>
+            </div>
+            <div class="input-group">
+                <textarea id="userInput" rows="3" placeholder="Type your message..."></textarea>
+                <button id="sendButton" onclick="sendMessage()">Send Message</button>
+            </div>
+            <div id="updateBotKnowledge" style="display: none;">
+                <input type="text" id="userInputToUpdate" placeholder="Enter the user input to update">
+                <input type="text" id="correctInput" placeholder="Enter the correct response">
+                <button onclick="updateBotKnowledge()">Update Bot Knowledge</button>
+            </div>
+        </div> 
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

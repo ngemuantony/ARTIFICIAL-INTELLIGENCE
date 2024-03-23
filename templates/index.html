@@ -1,0 +1,192 @@
+<style>
+    /* General styling */
+   body {
+       background-color: white;
+       margin: 0;
+       padding: 0;
+   }
+   
+   body, html {
+       height: 100%;
+   }
+   
+   .title {
+       color: greenyellow;
+       font-weight: bold;
+   }
+   
+   .name {
+       color: green;
+       font-size: 22px;
+       font-weight: bolder;
+   }
+   
+   .container {
+       display: flex;
+       height: 100%;
+       overflow: hidden;
+   }
+   
+   .navbar {
+       width: 250px;
+       background-color: #28a745; /* Green background */
+       color: #fff; /* White text */
+       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+       overflow-y: auto;
+       position: relative; /* Ensure relative positioning for absolute child */
+   }
+   
+   .previous-conversations {
+       padding: 20px;
+   }
+   
+   .previous-conversations h2 {
+       margin-bottom: 10px;
+   }
+   
+   .previous-conversations ul {
+       list-style-type: none;
+       padding: 0;
+       margin: 0;
+   }
+   
+   .previous-conversations li {
+       cursor: pointer;
+       padding: 5px 0;
+   }
+   
+   .previous-conversations li:hover {
+       background-color: rgba(255, 255, 255, 0.1); /* Light green on hover */
+   }
+   
+   .chat-container {
+       flex: 1;
+       display: flex;
+       flex-direction: column;
+   }
+   
+   .chatbox {
+       overflow-y: auto;
+       flex: 1;
+       max-width: 100%;
+       border: 1px solid #ccc;
+       padding: 10px;
+       margin-bottom: 20px;
+       display: flex;
+       flex-direction: column;
+   }
+   
+   .chatbox p {
+       margin: 5px 0;
+   }
+   
+   .user-message {
+       align-self: flex-start;
+       background-color: #d3e0ff;
+       border-radius: 5px;
+       padding: 8px;
+       max-width: 70%;
+   }
+   
+   .bot-message {
+       align-self: flex-end;
+       background-color: green;
+       color: #fff;
+       border-radius: 5px;
+       padding: 8px;
+       max-width: 70%;
+       font-family: Arial, sans-serif;
+       font-size: 14px;
+       line-height: 1.4;
+   }
+   
+   .processing {
+       font-style: italic;
+       color: #888;
+   }
+   
+   /* Media Queries */
+   @media (max-width: 991px) {
+       .container {
+           flex-direction: column;
+       }
+       .navbar {
+           width: 100%;
+       }
+       .chat-container {
+           width: 100%;
+       }
+   }
+   
+   @media (max-width: 441px) {
+       .container {
+           flex-direction: column;
+       }
+       .navbar {
+           width: 100%;
+       }
+       .chat-container {
+           width: 100%;
+       }
+   }
+   
+   /* Text area and button styles */
+   .input-group {
+       display: flex;
+       align-items: flex-end; /* Align items at the bottom */
+       width: calc(90% - 80px); /* Adjusted width */
+       margin-bottom: 10px;
+   }
+   
+   textarea#userInput {
+       flex: 1; /* Take remaining space */
+       padding: 10px;
+       border: 1px solid lawngreen; /* Lawngreen border */
+       border-radius: 5px;
+       /* Green background */
+       color: black; /* White text */
+       resize: none;
+       height: 80%; /* Set textarea height to 100% */
+       font-weight: bolder;
+       font-size: 22px;
+   }
+   
+   button {
+       padding: 10px;
+       margin-left: 10px;
+       border: 1px solid lawngreen; /* Lawngreen border */
+       border-radius: 5px;
+       background-color: #28a745; /* Green background */
+       color: #fff; /* White text */
+       cursor: pointer;
+       height: 100%; /* Set button height to 100% */
+   }
+   
+   .toggle-background-btn {
+       position: absolute; /* Position the button */
+       top: 2px; /* Adjust as needed */
+       left: 50%; /* Center horizontally */
+       transform: translateX(-50%); /* Center horizontally */
+       padding: 8px 16px; /* Adjust padding as needed */
+       border: none;
+       border-radius: 5px;
+       background-color: darkblue; /* Dark blue background */
+       color: #fff; /* White text */
+       cursor: pointer;
+       height: 10%; /* Set button height to 10% */
+       
+   }
+   
+   .toggle-background-btn:hover {
+       background-color: green; /* Green background on hover */
+   }
+   
+   /* Media query for responsiveness */
+   @media (max-width: 768px) {
+       .toggle-background-btn {
+           top: 70px; /* Adjust as needed for smaller screens */
+           padding: 8px 16px; /* Adjust padding as needed for smaller screens */
+       }
+   }
+   
+       </style>
