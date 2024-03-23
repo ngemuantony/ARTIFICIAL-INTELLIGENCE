@@ -1,6 +1,5 @@
-Flask
-sqlite3
-wikipedia
+flask
+wikipedia==1.4.0
 google
 requests
 beautifulsoup4
