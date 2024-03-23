@@ -1,4 +1,5 @@
 flask
+gunicorn
 wikipedia==1.4.0
 google
 requests
